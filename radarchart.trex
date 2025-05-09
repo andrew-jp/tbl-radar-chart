@@ -7,10 +7,12 @@
     <author name="Andrew Pritchett" email="andrewpritchett1@weber.edu" organization="Weber State University" website="https://www.weber.edu"/>
     <min-api-version>1.11</min-api-version>
     <source-location>
-    <!-- Will need to update this to point at HTTPS hosting server -->
         <url>https://andrew-jp.github.io/tbl-radar-chart/index.html</url>
     </source-location>
     <icon/>
+    <permissions>
+      <permission>full data</permission>
+    </permissions>
     <!-- One dimension and several measures to plot -->
     <encoding id="category">
         <display-name>Category</display-name>
