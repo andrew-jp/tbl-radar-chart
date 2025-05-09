@@ -1,6 +1,7 @@
 
 // Wrap everything in an anonymous function to avoid polluting the global namespace
 (function () {
+  alert('Loading Radar Chart')
   window.onload = tableau.extensions.initializeAsync().then(() => {
     // Get the worksheet that the Viz Extension is running in
     console.log("🌀 Rendering radar chart...");
