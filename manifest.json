@@ -1,0 +1,13 @@
+{
+  "manifest_version": 1,
+  "name": "Radar Chart Extension",
+  "description": "Displays data as a radar chart.",
+  "author": "Andrew Pritchett",
+  "version": "1.0.0",
+  "scripts": [],
+  "styleSheets": [],
+  "main": "index.html",
+  "icon": "icon.png",
+  "permissions": ["data"],
+  "minApiVersion": "1.1"
+}
