@@ -19,14 +19,14 @@
         'https://cdn.tableau.com/extensions/1.12.0/tableau.extensions.1.latest.js',
         () => {
           console.log('✅ Tableau Extensions API loaded from CDN');
-          loadScript('script.js', () => console.log('✅ App JS loaded'));
+          loadScript('radar.js', () => console.log('✅ App JS loaded'));
         },
         () => {
           // Fallback to local version (for dev mode)
           console.warn('⚠️ CDN load failed, falling back to local');
           loadScript('lib/tableau.extensions.1.latest.js', () => {
             console.log('✅ Loaded local Tableau Extensions API');
-            loadScript('script.js', () => console.log('✅ App JS loaded (local)'));
+            loadScript('radar.js', () => console.log('✅ App JS loaded (local)'));
           });
         }
       );
