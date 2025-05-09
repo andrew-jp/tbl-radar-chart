@@ -3,7 +3,6 @@
 (function () {
   window.onload = tableau.extensions.initializeAsync().then(() => {
     // Get the worksheet that the Viz Extension is running in
-    alert("🌀 Rendering radar chart...");
     const worksheet = tableau.extensions.worksheetContent.worksheet;
 
     // Save these outside the scope below for handling resizing without refetching the data
