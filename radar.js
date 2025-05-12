@@ -212,7 +212,8 @@ function renderRadarChart(data, encodings) {
       borderWidth: 2
     }));
 
-    drawRadarChart(content, labels, datasets, categoryField);
+    const sorted = sortDatasetsByArea(datasets, labels);
+    drawRadarChart(content, labels, sorted, categoryField);
   } else {
     // Normal format — multiple value fields as columns
     data.forEach(row => {
