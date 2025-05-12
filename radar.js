@@ -35,6 +35,39 @@
     updateDataAndRender();
   });
 
+
+function calculatePolygonArea(points) {
+  let area = 0;
+  const n = points.length;
+  for (let i = 0; i < n; i++) {
+    const j = (i + 1) % n;
+    area += points[i].x * points[j].y - points[j].x * points[i].y;
+  }
+  return Math.abs(area / 2);
+}
+
+function sortDatasetsByArea(datasets, labels) {
+  const angleStep = (2 * Math.PI) / labels.length;
+
+  return datasets
+    .map(dataset => {
+      const points = dataset.data.map((value, i) => {
+        const angle = i * angleStep;
+        return {
+          x: value * Math.cos(angle),
+          y: value * Math.sin(angle)
+        };
+      });
+
+      return {
+        ...dataset,
+        _area: calculatePolygonArea(points)
+      };
+    })
+    .sort((a, b) => a._area - b._area) // Smallest drawn last (on top)
+    .map(({ _area, ...rest }) => rest);
+}
+
 // Takes a page of data, which has a list of DataValues (dataTablePage.data)
 // and a list of columns and puts the data in a list where each entry is an
 // object that maps from field names to DataValues
@@ -200,7 +233,8 @@ function renderRadarChart(data, encodings) {
       borderWidth: 2
     }));
 
-    drawRadarChart(content, labels, datasets, categoryField);
+    const sorted = sortDatasetsByArea(datasets, labels);
+    drawRadarChart(content, labels, sorted, categoryField);
   }
 }
 
