@@ -113,6 +113,19 @@ function drawRadarChart(container, labels, datasets, titleField) {
     },
     options: {
       responsive: true,
+       scales: {
+        r: {
+          min: 0,
+          max: 1,        // or 1
+          ticks: {
+            stepSize: .10,
+            callback: function (value) {
+              return value + '%';
+            }
+          }
+        }
+      }
+    
       plugins: {
         legend: { position: 'top' },
         title: { display: false, text: `Radar Chart by ${titleField}` },
@@ -207,3 +220,4 @@ function renderRadarChart(data, encodings) {
 }
 
 })();
+
