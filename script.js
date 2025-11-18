@@ -113,14 +113,15 @@ function drawRadarChart(container, labels, datasets, titleField) {
     },
     options: {
       responsive: true,
-      scale: {
-        ticks: {
-          // lock the ends of the axis
+      scales: {
+        r: {
           min: 0,
-          max: 100,      // or 1 if you’re feeding in proportions
-          stepSize: 10,
-          callback: function (value) {
-            return value + '%'; // optional, if you’re in 0–100 space
+          max: 100,
+          ticks: {
+            stepSize: 10,
+            callback: function (value) {
+              return value + '%';
+            }     
           }
         }
       },
@@ -219,5 +220,6 @@ function renderRadarChart(data, encodings) {
 }
 
 })();
+
 
 
