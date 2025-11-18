@@ -1,4 +1,5 @@
 
+
 // Wrap everything in an anonymous function to avoid polluting the global namespace
 (function () {
   window.onload = tableau.extensions.initializeAsync().then(() => {
